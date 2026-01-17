@@ -34,19 +34,28 @@ cp -r .opencode/command ~/.config/opencode/
 ## What's Included
 
 ### 📦 Skills (`skill/`)
+
+**Code Quality:**
 - **team-review** - Enforce team code standards
 - **deploy-check** - Pre-deployment checklist
 - **security-audit** - Security vulnerability scanning
+
+**Performance Testing (NEW in v3.0):**
+- **architecture-analyzer** - Parse system architecture for performance testing
+- **performance-test** - Generate k6 test scripts with load patterns
+- **analyze-k6-results** - Analyze results with production extrapolation and cost modeling
 
 > **Note:** Git workflow skills (branch, commit, push, create-pr) have been removed. OpenCode has **native git support** - just use natural language! See examples below.
 
 ### 🤖 Agents (`agent/`)
 - **code-reviewer** - Specialized code review agent
 - **test-writer** - Test generation agent
+- **k6-tester** - Performance testing with k6, architecture analysis, and cost modeling (NEW)
 
 ### ⚡ Commands (`command/`)
 - **/review** - Quick code review
 - **/test** - Run tests with analysis
+- **/perf** - Performance testing workflow (NEW)
 
 ---
 
@@ -103,7 +112,103 @@ Use slash commands:
 ```
 /review
 /test
+/perf analyze    # NEW: Analyze architecture
+/perf create     # NEW: Generate k6 test script
+/perf results    # NEW: Analyze k6 results
 ```
+
+---
+
+## Performance Testing with k6 (NEW in v3.0)
+
+Test your system's performance, extrapolate QA results to production, and estimate costs for scaling.
+
+### Quick Start
+
+```bash
+# 1. Analyze your architecture
+/perf analyze "My API runs on EKS with 4 CPU, 2GB RAM, 2 pods in prod. 
+               QA has 1 CPU, 512MB, 1 pod. Target: 2,000 RPS."
+
+# 2. Generate k6 test script
+/perf create --target-rps 2000
+
+# 3. Run test (manually)
+k6 run performance-test.js --out json=results.json
+
+# 4. Analyze results
+/perf analyze-results results.json
+```
+
+### What You Get
+
+**Architecture Analysis:**
+- Component identification (API, SQS, Lambda, RDS)
+- Resource mapping (QA vs Production)
+- Bottleneck predictions
+- Test strategy recommendations
+
+**K6 Script Generation:**
+- Multiple load patterns (baseline, ramp, spike, stress, soak)
+- Appropriate thresholds (p95, p99, error rate)
+- Portable scripts (run anywhere)
+- CloudWatch monitoring instructions
+
+**Results Analysis:**
+- Production capacity extrapolation (QA → Prod)
+- Multi-factor scaling formulas
+- Reality adjustments (cold starts, network latency)
+- Confidence levels
+
+**Cost Modeling:**
+- Current infrastructure costs
+- Scaling scenarios (2x, 3x, 5x load)
+- Optimization opportunities (batching, spot instances)
+- Cost per RPS analysis
+
+### Example Output
+
+```
+## Production Estimate (from QA test)
+
+QA Results: 250 RPS @ 78% CPU
+Production Capacity: 1,471 RPS (75% confidence)
+
+Extrapolation:
+- CPU scaling: 4x
+- Pod scaling: 2x
+- Reality factor: 1.25x
+- Combined: 6.8x capacity
+
+Cost for 3,000 RPS: $1,205/month
+(with RDS Proxy and optimizations)
+
+Critical Recommendations:
+🔴 Implement RDS Proxy ($11/month) - Database connections will exhaust
+🟡 Request Lambda concurrency increase to 3,000 (free)
+```
+
+### Architecture Examples
+
+See `examples/k6/` for:
+- Sample architecture profiles (YAML)
+- k6 test scripts (all load patterns)
+- Complete analysis reports
+- Cost estimation examples
+
+### Supported AWS Stack
+
+- **Compute:** EKS, ECS, Lambda
+- **Queues:** SQS Standard
+- **Notifications:** SNS
+- **Database:** RDS PostgreSQL
+- **Monitoring:** CloudWatch
+
+### Learn More
+
+- **k6 Installation:** https://k6.io/docs/get-started/installation/
+- **Examples:** [examples/k6/README.md](examples/k6/README.md)
+- **Agent Details:** [.opencode/agent/k6-tester.md](.opencode/agent/k6-tester.md)
 
 ---
 
@@ -137,19 +242,25 @@ Use slash commands:
 │   ├── team-review/
 │   ├── deploy-check/
 │   ├── security-audit/
-│   ├── branch/
-│   ├── commit/
-│   ├── push/
-│   └── create-pr/
+│   ├── architecture-analyzer/  # NEW
+│   ├── performance-test/       # NEW
+│   └── analyze-k6-results/     # NEW
 ├── agent/             # Custom agents
 │   ├── code-reviewer.md
-│   └── test-writer.md
+│   ├── test-writer.md
+│   └── k6-tester.md            # NEW
 └── command/           # Slash commands
     ├── review.md
-    └── test.md
+    ├── test.md
+    └── perf.md                 # NEW
+
+examples/              # Example usage
+└── k6/               # Performance testing examples
+    ├── architecture-qa-vs-prod.yaml
+    └── README.md
 
 guides/                # Documentation
-├── native-workflows.md
+└── native-workflows.md
 
 migration/             # Migration guides
 └── from-claude.md
