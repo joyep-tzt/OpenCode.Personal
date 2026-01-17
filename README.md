@@ -37,10 +37,8 @@ cp -r .opencode/command ~/.config/opencode/
 - **team-review** - Enforce team code standards
 - **deploy-check** - Pre-deployment checklist
 - **security-audit** - Security vulnerability scanning
-- **branch** - Create feature branches
-- **commit** - Smart commit messages
-- **push** - Push with tracking
-- **create-pr** - Create pull requests
+
+> **Note:** Git workflow skills (branch, commit, push, create-pr) have been removed. OpenCode has **native git support** - just use natural language! See examples below.
 
 ### 🤖 Agents (`agent/`)
 - **code-reviewer** - Specialized code review agent

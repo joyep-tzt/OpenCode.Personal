@@ -1,7 +1,8 @@
 {
   "$schema": "https://opencode.ai/schemas/config.json",
   "description": "OpenCode Personal - Skills, agents, and commands configuration",
-  "version": "1.0.0",
+  "version": "2.0.0",
+  "note": "Git workflow skills (branch, commit, push, create-pr) removed - OpenCode handles these natively",
   "skills": {
     "location": ".opencode/skill",
     "available": [
@@ -19,28 +20,17 @@
         "name": "security-audit",
         "description": "Security vulnerability scanning",
         "path": ".opencode/skill/security-audit/SKILL.md"
-      },
-      {
-        "name": "branch",
-        "description": "Create feature branches",
-        "path": ".opencode/skill/branch/SKILL.md"
-      },
-      {
-        "name": "commit",
-        "description": "Smart commit messages",
-        "path": ".opencode/skill/commit/SKILL.md"
-      },
-      {
-        "name": "push",
-        "description": "Push with tracking",
-        "path": ".opencode/skill/push/SKILL.md"
-      },
-      {
-        "name": "create-pr",
-        "description": "Create pull requests",
-        "path": ".opencode/skill/create-pr/SKILL.md"
       }
-    ]
+    ],
+    "native_git_support": {
+      "note": "OpenCode has built-in support for git workflows. Use natural language instead of custom skills:",
+      "examples": [
+        "\"commit my changes with a good message\" - Creates smart commits",
+        "\"push this to remote\" - Pushes with tracking",
+        "\"create a PR for these changes\" - Creates PR with description",
+        "\"create a feature branch\" - Creates and switches to new branch"
+      ]
+    }
   },
   "agents": {
     "location": ".opencode/agent",
