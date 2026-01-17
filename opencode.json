@@ -1,0 +1,90 @@
+{
+  "$schema": "https://opencode.ai/schemas/config.json",
+  "description": "OpenCode Personal - Skills, agents, and commands configuration",
+  "version": "1.0.0",
+  "skills": {
+    "location": ".opencode/skill",
+    "available": [
+      {
+        "name": "team-review",
+        "description": "Review code for team standards",
+        "path": ".opencode/skill/team-review/SKILL.md"
+      },
+      {
+        "name": "deploy-check",
+        "description": "Pre-deployment checklist",
+        "path": ".opencode/skill/deploy-check/SKILL.md"
+      },
+      {
+        "name": "security-audit",
+        "description": "Security vulnerability scanning",
+        "path": ".opencode/skill/security-audit/SKILL.md"
+      },
+      {
+        "name": "branch",
+        "description": "Create feature branches",
+        "path": ".opencode/skill/branch/SKILL.md"
+      },
+      {
+        "name": "commit",
+        "description": "Smart commit messages",
+        "path": ".opencode/skill/commit/SKILL.md"
+      },
+      {
+        "name": "push",
+        "description": "Push with tracking",
+        "path": ".opencode/skill/push/SKILL.md"
+      },
+      {
+        "name": "create-pr",
+        "description": "Create pull requests",
+        "path": ".opencode/skill/create-pr/SKILL.md"
+      }
+    ]
+  },
+  "agents": {
+    "location": ".opencode/agent",
+    "available": [
+      {
+        "name": "code-reviewer",
+        "description": "Specialized code review agent",
+        "path": ".opencode/agent/code-reviewer.md"
+      },
+      {
+        "name": "test-writer",
+        "description": "Test generation agent",
+        "path": ".opencode/agent/test-writer.md"
+      }
+    ]
+  },
+  "commands": {
+    "location": ".opencode/command",
+    "available": [
+      {
+        "name": "review",
+        "description": "Quick code review",
+        "path": ".opencode/command/review.md"
+      },
+      {
+        "name": "test",
+        "description": "Run tests with analysis",
+        "path": ".opencode/command/test.md"
+      }
+    ]
+  },
+  "installation": {
+    "recommended": "~/.config/opencode",
+    "alternative": "~/.opencode",
+    "script": "./install-skills.sh"
+  },
+  "verification": {
+    "script": "./VERIFICATION-GUIDE.sh"
+  },
+  "metadata": {
+    "repository": "https://github.com/joyep-tzt/OpenCode.Personal",
+    "author": "joyep-tzt",
+    "license": "MIT",
+    "created": "2026-01-16",
+    "updated": "2026-01-16"
+  }
+}
