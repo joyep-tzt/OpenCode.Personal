@@ -1,7 +1,7 @@
 {
   "$schema": "https://opencode.ai/schemas/config.json",
   "description": "OpenCode Personal - Skills, agents, and commands configuration",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "note": "Git workflow skills (branch, commit, push, create-pr) removed - OpenCode handles these natively",
   "skills": {
     "location": ".opencode/skill",
@@ -20,6 +20,21 @@
         "name": "security-audit",
         "description": "Security vulnerability scanning",
         "path": ".opencode/skill/security-audit/SKILL.md"
+      },
+      {
+        "name": "architecture-analyzer",
+        "description": "Parse and understand system architecture for performance testing",
+        "path": ".opencode/skill/architecture-analyzer/SKILL.md"
+      },
+      {
+        "name": "performance-test",
+        "description": "Generate k6 test scripts with load patterns and extrapolation",
+        "path": ".opencode/skill/performance-test/SKILL.md"
+      },
+      {
+        "name": "analyze-k6-results",
+        "description": "Analyze k6 results with production extrapolation and cost modeling",
+        "path": ".opencode/skill/analyze-k6-results/SKILL.md"
       }
     ],
     "native_git_support": {
@@ -44,6 +59,11 @@
         "name": "test-writer",
         "description": "Test generation agent",
         "path": ".opencode/agent/test-writer.md"
+      },
+      {
+        "name": "k6-tester",
+        "description": "K6 performance testing with architecture analysis and cost modeling",
+        "path": ".opencode/agent/k6-tester.md"
       }
     ]
   },
@@ -59,6 +79,11 @@
         "name": "test",
         "description": "Run tests with analysis",
         "path": ".opencode/command/test.md"
+      },
+      {
+        "name": "perf",
+        "description": "Performance testing workflow with k6",
+        "path": ".opencode/command/perf.md"
       }
     ]
   },
@@ -76,5 +101,36 @@
     "license": "MIT",
     "created": "2026-01-16",
     "updated": "2026-01-16"
+  },
+  "examples": {
+    "location": "examples",
+    "available": [
+      {
+        "name": "k6-performance-testing",
+        "description": "K6 test scripts, architecture profiles, and analysis reports",
+        "path": "examples/k6/"
+      }
+    ]
+  },
+  "changelog": {
+    "3.0.0": {
+      "date": "2026-01-16",
+      "changes": [
+        "Added k6-tester agent for performance testing",
+        "Added architecture-analyzer skill",
+        "Added performance-test skill for k6 script generation",
+        "Added analyze-k6-results skill for extrapolation and cost modeling",
+        "Added /perf command for quick workflows",
+        "Added k6 examples with architecture profiles and reports"
+      ]
+    },
+    "2.0.0": {
+      "date": "2026-01-16",
+      "changes": [
+        "Removed git workflow skills (OpenCode handles natively)",
+        "Retained team-review, deploy-check, security-audit skills",
+        "Applied OpenCode best practices"
+      ]
+    }
   }
 }

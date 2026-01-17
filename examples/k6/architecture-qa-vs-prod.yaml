@@ -1,0 +1,201 @@
+# Architecture Profile: Order Management System
+# Used for k6 performance testing and extrapolation
+
+architecture:
+  name: "Order Management System"
+  description: "API-driven order processing with async queue workflow"
+  
+  components:
+    # Frontend API
+    - id: api-gateway
+      name: "Order API"
+      type: http-api
+      platform: eks
+      language: nodejs
+      framework: express
+      
+      endpoints:
+        - method: POST
+          path: /api/orders
+          description: "Create new order"
+          avg_response_ms: 350
+          p95_response_ms: 500
+        
+        - method: GET
+          path: /api/orders/:id
+          description: "Get order by ID"
+          avg_response_ms: 120
+          p95_response_ms: 200
+      
+      environments:
+        production:
+          cpu: 4
+          ram_mb: 2048
+          replicas: 2
+          hpa:
+            enabled: true
+            min_replicas: 2
+            max_replicas: 10
+            target_cpu_percent: 70
+        
+        qa:
+          cpu: 1
+          ram_mb: 512
+          replicas: 1
+          hpa:
+            enabled: false
+      
+      dependencies:
+        - sqs-orders
+    
+    # Message Queue
+    - id: sqs-orders
+      name: "Orders Queue"
+      type: sqs-standard
+      platform: aws
+      
+      configuration:
+        visibility_timeout: 30
+        max_message_size: 262144
+      
+      environments:
+        production:
+          avg_messages_per_sec: 150
+          peak_messages_per_sec: 500
+        qa:
+          avg_messages_per_sec: 25
+      
+      dependencies:
+        - lambda-processor
+    
+    # Lambda Processor
+    - id: lambda-processor
+      name: "Order Processor"
+      type: aws-lambda
+      runtime: nodejs18
+      
+      configuration:
+        memory_mb: 1024
+        timeout_sec: 30
+        reserved_concurrency: 100
+      
+      environments:
+        production:
+          invocations_per_day: 12960000  # ~150/sec avg
+          avg_duration_ms: 5000
+          error_rate: 0.0005
+        qa:
+          invocations_per_day: 2160000   # ~25/sec avg
+          avg_duration_ms: 6000
+          error_rate: 0.001
+      
+      dependencies:
+        - rds-postgres
+    
+    # Database
+    - id: rds-postgres
+      name: "Orders Database"
+      type: postgresql
+      version: "14.7"
+      platform: aws-rds
+      
+      environments:
+        production:
+          instance_type: db.t3.large
+          cpu: 2
+          ram_mb: 8192
+          max_connections: 100
+          write_capacity_per_sec: 5000
+        
+        qa:
+          instance_type: db.t3.small
+          cpu: 2
+          ram_mb: 2048
+          max_connections: 100
+          write_capacity_per_sec: 1000
+
+# Extrapolation Model
+extrapolation:
+  method: "Multi-factor scaling with efficiency adjustments"
+  
+  factors:
+    cpu_scaling:
+      formula: "(prod_cpu / qa_cpu) * efficiency"
+      efficiency: 0.85
+      
+    pod_scaling:
+      formula: "(prod_replicas / qa_replicas) * lb_efficiency"
+      lb_efficiency: 0.90
+    
+    combined:
+      calculated: 6.8  # (4/1 * 0.85) * (2/1 * 0.90)
+  
+  adjustments:
+    cold_start_penalty:
+      qa_impact: 15%
+      prod_impact: 2%
+      adjustment: "+13% for production"
+    
+    network_latency:
+      qa_to_rds_ms: 5
+      prod_to_rds_ms: 1
+      adjustment: "+10% for production"
+    
+    combined_reality_factor: 1.25
+  
+  confidence:
+    level: 75%
+    notes:
+      - "Based on linear scaling assumptions"
+      - "Assumes no database connection pool exhaustion"
+      - "Needs validation with actual production traffic"
+
+# Performance Targets
+targets:
+  production:
+    avg_rps: 1000
+    peak_rps: 2000
+    p95_latency_ms: 300
+    p99_latency_ms: 800
+    error_rate: 0.001  # 99.9% success
+    uptime: 99.9%
+  
+  qa_equivalent:
+    avg_rps: 147   # 1000 / 6.8
+    peak_rps: 294  # 2000 / 6.8
+    p95_latency_ms: 450
+    error_rate: 0.001
+
+# Cost Estimates (Monthly USD)
+cost_estimates:
+  production:
+    eks_pods: 288
+    rds: 120
+    lambda: 41
+    sqs: 12
+    sns: 15
+    data_transfer: 50
+    total: 526
+  
+  qa:
+    eks_pods: 36
+    rds: 30
+    lambda: 10
+    sqs: 3
+    sns: 4
+    data_transfer: 10
+    total: 93
+
+# Known Bottlenecks
+bottlenecks:
+  - component: rds-postgres
+    type: database_connections
+    limit: 100
+    risk: "Critical - May exhaust at high load"
+    solution: "RDS Proxy ($11/month)"
+    
+  - component: lambda-processor
+    type: concurrency
+    limit: 1000
+    risk: "Medium - Need increase for scaling"
+    solution: "Request limit increase (free)"
