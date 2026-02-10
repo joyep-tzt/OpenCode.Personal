@@ -1,0 +1,80 @@
+name: Skill Validation
+
+on:
+  push:
+    branches: [ main, master, dev ]
+    paths:
+      - '.opencode/skill/**'
+      - 'skill_auditor.py'
+      - 'scripts/**'
+  pull_request:
+    branches: [ main, master, dev ]
+    paths:
+      - '.opencode/skill/**'
+      - 'skill_auditor.py'
+      - 'scripts/**'
+  workflow_dispatch:
+
+jobs:
+  validate-skills:
+    runs-on: ubuntu-latest
+    name: Validate OpenCode Skills
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pyyaml
+        
+    - name: Install jq
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y jq
+        
+    - name: Run skill validation
+      run: |
+        chmod +x scripts/ci-validate.sh
+        ./scripts/ci-validate.sh
+      env:
+        FAIL_ON_DELETE: true
+        FAIL_ON_LOW_SCORE: true
+        MIN_SCORE: 60
+        
+    - name: Generate markdown report
+      if: always()
+      run: |
+        python3 skill_auditor.py --format markdown -o skill-validation-report.md
+        
+    - name: Upload validation report
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: skill-validation-report
+        path: skill-validation-report.md
+        
+    - name: Comment PR with results
+      if: github.event_name == 'pull_request' && always()
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const fs = require('fs');
+          const report = fs.readFileSync('skill-validation-report.md', 'utf8');
+          
+          // Extract summary section
+          const summaryMatch = report.match(/## Executive Summary[\s\S]*?(?=## |$)/);
+          const summary = summaryMatch ? summaryMatch[0] : 'Validation completed';
+          
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: `## 🔍 OpenCode Skill Validation Results\n\n${summary}\n\n<details>\n<summary>View Full Report</summary>\n\n\`\`\`markdown\n${report}\n\`\`\`\n</details>`
+          })

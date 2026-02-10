@@ -1,0 +1,1078 @@
+{
+  "generated_at": "2026-02-07T18:04:08.788116",
+  "summary": {
+    "total_skills": 13,
+    "keep": 9,
+    "upgrade": 0,
+    "delete": 4,
+    "critical_issues": 4,
+    "warning_issues": 25
+  },
+  "skills": [
+    {
+      "name": "team-review",
+      "location": "global",
+      "location_type": "global",
+      "path": "/home/userjyep/.config/opencode/skill/team-review/SKILL.md",
+      "metadata": {
+        "name": "team-review",
+        "description": "Review code for team standards and best practices",
+        "license": "MIT",
+        "compatibility": "opencode",
+        "audience": "developers",
+        "workflow": "code-review"
+      },
+      "score": {
+        "metadata_score": 35,
+        "metadata_max": 35,
+        "quality_score": 29,
+        "quality_max": 35,
+        "necessity_score": 30,
+        "necessity_max": 30,
+        "total_score": 94,
+        "max_score": 100,
+        "grade": "A",
+        "verdict": "KEEP",
+        "priority": "Low"
+      },
+      "issues": [
+        {
+          "severity": "info",
+          "category": "quality",
+          "message": "No 'when to use' section",
+          "recommendation": "Add guidance on appropriate usage contexts"
+        }
+      ],
+      "content_analysis": {
+        "line_count": 63,
+        "has_examples": true,
+        "has_output_format": true,
+        "has_actionable_instructions": true,
+        "has_severity_levels": true,
+        "has_when_to_use": false,
+        "code_blocks": 3,
+        "sections": [
+          "What I Do",
+          "Review Criteria",
+          "Output Format",
+          "Examples"
+        ],
+        "actionable_verbs": [
+          "Test",
+          "Fix",
+          "fix",
+          "fix",
+          "Fix",
+          "Fix",
+          "Fix",
+          "Add"
+        ]
+      }
+    },
+    {
+      "name": "branch",
+      "location": "global",
+      "location_type": "global",
+      "path": "/home/userjyep/.config/opencode/skill/branch/SKILL.md",
+      "metadata": {
+        "name": "branch",
+        "description": "Create a new branch",
+        "license": "",
+        "compatibility": "",
+        "audience": "",
+        "workflow": ""
+      },
+      "score": {
+        "metadata_score": 25,
+        "metadata_max": 35,
+        "quality_score": 0,
+        "quality_max": 35,
+        "necessity_score": 5,
+        "necessity_max": 30,
+        "total_score": 30,
+        "max_score": 100,
+        "grade": "F",
+        "verdict": "DELETE",
+        "priority": "Critical"
+      },
+      "issues": [
+        {
+          "severity": "info",
+          "category": "metadata",
+          "message": "Missing optional field: license",
+          "recommendation": "Consider adding 'license: MIT'"
+        },
+        {
+          "severity": "info",
+          "category": "metadata",
+          "message": "Missing optional field: compatibility",
+          "recommendation": "Consider adding 'compatibility: opencode'"
+        },
+        {
+          "severity": "warning",
+          "category": "metadata",
+          "message": "Missing metadata.workflow field",
+          "recommendation": "Add workflow categorization (e.g., 'git-ops', 'security', 'deployment')"
+        },
+        {
+          "severity": "warning",
+          "category": "quality",
+          "message": "No examples section found",
+          "recommendation": "Add concrete examples of skill usage"
+        },
+        {
+          "severity": "warning",
+          "category": "quality",
+          "message": "No output format defined",
+          "recommendation": "Add '## Output Format' section"
+        },
+        {
+          "severity": "warning",
+          "category": "quality",
+          "message": "Instructions lack actionable verbs",
+          "recommendation": "Use verbs like 'check', 'verify', 'create', 'implement'"
+        },
+        {
+          "severity": "info",
+          "category": "quality",
+          "message": "No 'when to use' section",
+          "recommendation": "Add guidance on appropriate usage contexts"
+        },
+        {
+          "severity": "warning",
+          "category": "quality",
+          "message": "No code blocks found",
+          "recommendation": "Add code examples or templates"
+        },
+        {
+          "severity": "critical",
+          "category": "necessity",
+          "message": "Likely duplicates native tui_slash command: /new",
+          "recommendation": "Consider deleting - functionality is built into opencode"
+        },
+        {
+          "severity": "warning",
+          "category": "necessity",
+          "message": "Description is too brief (< 30 chars)",
+          "recommendation": "Add more detail about what the skill does"
+        }
+      ],
+      "content_analysis": {
+        "line_count": 2,
+        "has_examples": false,
+        "has_output_format": false,
+        "has_actionable_instructions": false,
+        "has_severity_levels": false,
+        "has_when_to_use": false,
+        "code_blocks": 0,
+        "sections": [],
+        "actionable_verbs": [
+          "Create",
+          "fix"
+        ]
+      }
+    },
+    {
+      "name": "create-pr",
+      "location": "global",
+      "location_type": "global",
+      "path": "/home/userjyep/.config/opencode/skill/create-pr/SKILL.md",
+      "metadata": {
+        "name": "create-pr",
+        "description": "Create a pull request",
+        "license": "",
+        "compatibility": "",
+        "audience": "",
+        "workflow": ""
+      },
+      "score": {
+        "metadata_score": 25,
+        "metadata_max": 35,
+        "quality_score": 8,
+        "quality_max": 35,
+        "necessity_score": 5,
+        "necessity_max": 30,
+        "total_score": 38,
+        "max_score": 100,
+        "grade": "F",
+        "verdict": "DELETE",
+        "priority": "Critical"
+      },
+      "issues": [
+        {
+          "severity": "info",
+          "category": "metadata",
+          "message": "Missing optional field: license",
+          "recommendation": "Consider adding 'license: MIT'"
+        },
+        {
+          "severity": "info",
+          "category": "metadata",
+          "message": "Missing optional field: compatibility",
+          "recommendation": "Consider adding 'compatibility: opencode'"
+        },
+        {
+          "severity": "warning",
+          "category": "metadata",
+          "message": "Missing metadata.workflow field",
+          "recommendation": "Add workflow categorization (e.g., 'git-ops', 'security', 'deployment')"
+        },
+        {
+          "severity": "warning",
+          "category": "quality",
+          "message": "No examples section found",
+          "recommendation": "Add concrete examples of skill usage"
+        },
+        {
+          "severity": "warning",
+          "category": "quality",
+          "message": "No output format defined",
+          "recommendation": "Add '## Output Format' section"
+        },
+        {
+          "severity": "info",
+          "category": "quality",
+          "message": "No 'when to use' section",
+          "recommendation": "Add guidance on appropriate usage contexts"
+        },
+        {
+          "severity": "warning",
+          "category": "quality",
+          "message": "No code blocks found",
+          "recommendation": "Add code examples or templates"
+        },
+        {
+          "severity": "critical",
+          "category": "necessity",
+          "message": "Duplicates native git_workflows command: create-pr",
+          "recommendation": "Consider deleting - functionality is built into opencode"
+        },
+        {
+          "severity": "warning",
+          "category": "necessity",
+          "message": "Description is too brief (< 30 chars)",
+          "recommendation": "Add more detail about what the skill does"
+        }
+      ],
+      "content_analysis": {
+        "line_count": 4,
+        "has_examples": false,
+        "has_output_format": false,
+        "has_actionable_instructions": true,
+        "has_severity_levels": false,
+        "has_when_to_use": false,
+        "code_blocks": 0,
+        "sections": [],
+        "actionable_verbs": [
+          "Create",
+          "Check",
+          "Create",
+          "create"
+        ]
+      }
+    },
+    {
+      "name": "deploy-check",
+      "location": "global",
+      "location_type": "global",
+      "path": "/home/userjyep/.config/opencode/skill/deploy-check/SKILL.md",
+      "metadata": {
+        "name": "deploy-check",
+        "description": "Pre-deployment checklist verification",
+        "license": "MIT",
+        "compatibility": "opencode",
+        "audience": "developers",
+        "workflow": "deployment"
+      },
+      "score": {
+        "metadata_score": 35,
+        "metadata_max": 35,
+        "quality_score": 33,
+        "quality_max": 35,
+        "necessity_score": 30,
+        "necessity_max": 30,
+        "total_score": 98,
+        "max_score": 100,
+        "grade": "A",
+        "verdict": "KEEP",
+        "priority": "Low"
+      },
+      "issues": [
+        {
+          "severity": "info",
+          "category": "quality",
+          "message": "Only one code block found",
+          "recommendation": "Add more code examples"
+        }
+      ],
+      "content_analysis": {
+        "line_count": 72,
+        "has_examples": true,
+        "has_output_format": true,
+        "has_actionable_instructions": true,
+        "has_severity_levels": true,
+        "has_when_to_use": true,
+        "code_blocks": 1,
+        "sections": [
+          "What I Do",
+          "Deployment Checklist",
+          "Output Format",
+          "Pre-Deployment Check Results",
+          "Usage"
+        ],
+        "actionable_verbs": [
+          "Verify",
+          "Check",
+          "Fix",
+          "Remove",
+          "Fix",
+          "Run",
+          "check"
+        ]
+      }
+    },
+    {
+      "name": "push",
+      "location": "global",
+      "location_type": "global",
+      "path": "/home/userjyep/.config/opencode/skill/push/SKILL.md",
+      "metadata": {
+        "name": "push",
+        "description": "Push to remote",
+        "license": "",
+        "compatibility": "",
+        "audience": "",
+        "workflow": ""
+      },
+      "score": {
+        "metadata_score": 25,
+        "metadata_max": 35,
+        "quality_score": 0,
+        "quality_max": 35,
+        "necessity_score": 5,
+        "necessity_max": 30,
+        "total_score": 30,
+        "max_score": 100,
+        "grade": "F",
+        "verdict": "DELETE",
+        "priority": "Critical"
+      },
+      "issues": [
+        {
+          "severity": "info",
+          "category": "metadata",
+          "message": "Missing optional field: license",
+          "recommendation": "Consider adding 'license: MIT'"
+        },
+        {
+          "severity": "info",
+          "category": "metadata",
+          "message": "Missing optional field: compatibility",
+          "recommendation": "Consider adding 'compatibility: opencode'"
+        },
+        {
+          "severity": "warning",
+          "category": "metadata",
+          "message": "Missing metadata.workflow field",
+          "recommendation": "Add workflow categorization (e.g., 'git-ops', 'security', 'deployment')"
+        },
+        {
+          "severity": "warning",
+          "category": "quality",
+          "message": "No examples section found",
+          "recommendation": "Add concrete examples of skill usage"
+        },
+        {
+          "severity": "warning",
+          "category": "quality",
+          "message": "No output format defined",
+          "recommendation": "Add '## Output Format' section"
+        },
+        {
+          "severity": "warning",
+          "category": "quality",
+          "message": "Instructions lack actionable verbs",
+          "recommendation": "Use verbs like 'check', 'verify', 'create', 'implement'"
+        },
+        {
+          "severity": "info",
+          "category": "quality",
+          "message": "No 'when to use' section",
+          "recommendation": "Add guidance on appropriate usage contexts"
+        },
+        {
+          "severity": "warning",
+          "category": "quality",
+          "message": "No code blocks found",
+          "recommendation": "Add code examples or templates"
+        },
+        {
+          "severity": "critical",
+          "category": "necessity",
+          "message": "Duplicates native git_workflows command: push",
+          "recommendation": "Consider deleting - functionality is built into opencode"
+        },
+        {
+          "severity": "warning",
+          "category": "necessity",
+          "message": "Description is too brief (< 30 chars)",
+          "recommendation": "Add more detail about what the skill does"
+        }
+      ],
+      "content_analysis": {
+        "line_count": 1,
+        "has_examples": false,
+        "has_output_format": false,
+        "has_actionable_instructions": false,
+        "has_severity_levels": false,
+        "has_when_to_use": false,
+        "code_blocks": 0,
+        "sections": [],
+        "actionable_verbs": []
+      }
+    },
+    {
+      "name": "security-audit",
+      "location": "global",
+      "location_type": "global",
+      "path": "/home/userjyep/.config/opencode/skill/security-audit/SKILL.md",
+      "metadata": {
+        "name": "security-audit",
+        "description": "Security vulnerability scanning and best practices check",
+        "license": "MIT",
+        "compatibility": "opencode",
+        "audience": "developers",
+        "workflow": "security"
+      },
+      "score": {
+        "metadata_score": 35,
+        "metadata_max": 35,
+        "quality_score": 25,
+        "quality_max": 35,
+        "necessity_score": 30,
+        "necessity_max": 30,
+        "total_score": 90,
+        "max_score": 100,
+        "grade": "A",
+        "verdict": "KEEP",
+        "priority": "Low"
+      },
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "quality",
+          "message": "No examples section found",
+          "recommendation": "Add concrete examples of skill usage"
+        }
+      ],
+      "content_analysis": {
+        "line_count": 137,
+        "has_examples": false,
+        "has_output_format": true,
+        "has_actionable_instructions": true,
+        "has_severity_levels": true,
+        "has_when_to_use": true,
+        "code_blocks": 3,
+        "sections": [
+          "What I Do",
+          "Security Checks",
+          "Severity Classification",
+          "Output Format",
+          "Security Audit Results",
+          "Recommendations",
+          "When to Use"
+        ],
+        "actionable_verbs": [
+          "Fix",
+          "Fix",
+          "Fix",
+          "Fix",
+          "Fix",
+          "Fix",
+          "Add",
+          "Fix",
+          "Fix",
+          "Add",
+          "Implement",
+          "Add"
+        ]
+      }
+    },
+    {
+      "name": "commit",
+      "location": "global",
+      "location_type": "global",
+      "path": "/home/userjyep/.config/opencode/skill/commit/SKILL.md",
+      "metadata": {
+        "name": "commit",
+        "description": "Commit changes with good message",
+        "license": "",
+        "compatibility": "",
+        "audience": "",
+        "workflow": ""
+      },
+      "score": {
+        "metadata_score": 25,
+        "metadata_max": 35,
+        "quality_score": 8,
+        "quality_max": 35,
+        "necessity_score": 10,
+        "necessity_max": 30,
+        "total_score": 43,
+        "max_score": 100,
+        "grade": "F",
+        "verdict": "DELETE",
+        "priority": "Critical"
+      },
+      "issues": [
+        {
+          "severity": "info",
+          "category": "metadata",
+          "message": "Missing optional field: license",
+          "recommendation": "Consider adding 'license: MIT'"
+        },
+        {
+          "severity": "info",
+          "category": "metadata",
+          "message": "Missing optional field: compatibility",
+          "recommendation": "Consider adding 'compatibility: opencode'"
+        },
+        {
+          "severity": "warning",
+          "category": "metadata",
+          "message": "Missing metadata.workflow field",
+          "recommendation": "Add workflow categorization (e.g., 'git-ops', 'security', 'deployment')"
+        },
+        {
+          "severity": "warning",
+          "category": "quality",
+          "message": "No examples section found",
+          "recommendation": "Add concrete examples of skill usage"
+        },
+        {
+          "severity": "warning",
+          "category": "quality",
+          "message": "No output format defined",
+          "recommendation": "Add '## Output Format' section"
+        },
+        {
+          "severity": "info",
+          "category": "quality",
+          "message": "No 'when to use' section",
+          "recommendation": "Add guidance on appropriate usage contexts"
+        },
+        {
+          "severity": "warning",
+          "category": "quality",
+          "message": "No code blocks found",
+          "recommendation": "Add code examples or templates"
+        },
+        {
+          "severity": "critical",
+          "category": "necessity",
+          "message": "Duplicates native git_workflows command: commit",
+          "recommendation": "Consider deleting - functionality is built into opencode"
+        }
+      ],
+      "content_analysis": {
+        "line_count": 8,
+        "has_examples": false,
+        "has_output_format": false,
+        "has_actionable_instructions": true,
+        "has_severity_levels": false,
+        "has_when_to_use": false,
+        "code_blocks": 0,
+        "sections": [],
+        "actionable_verbs": [
+          "fix",
+          "fix",
+          "test"
+        ]
+      }
+    },
+    {
+      "name": "team-review",
+      "location": "project",
+      "location_type": "project",
+      "path": ".opencode/skill/team-review/SKILL.md",
+      "metadata": {
+        "name": "team-review",
+        "description": "Review code for team standards and best practices",
+        "license": "MIT",
+        "compatibility": "opencode",
+        "audience": "developers",
+        "workflow": "code-review"
+      },
+      "score": {
+        "metadata_score": 35,
+        "metadata_max": 35,
+        "quality_score": 29,
+        "quality_max": 35,
+        "necessity_score": 30,
+        "necessity_max": 30,
+        "total_score": 94,
+        "max_score": 100,
+        "grade": "A",
+        "verdict": "KEEP",
+        "priority": "Low"
+      },
+      "issues": [
+        {
+          "severity": "info",
+          "category": "quality",
+          "message": "No 'when to use' section",
+          "recommendation": "Add guidance on appropriate usage contexts"
+        }
+      ],
+      "content_analysis": {
+        "line_count": 63,
+        "has_examples": true,
+        "has_output_format": true,
+        "has_actionable_instructions": true,
+        "has_severity_levels": true,
+        "has_when_to_use": false,
+        "code_blocks": 3,
+        "sections": [
+          "What I Do",
+          "Review Criteria",
+          "Output Format",
+          "Examples"
+        ],
+        "actionable_verbs": [
+          "Test",
+          "Fix",
+          "fix",
+          "fix",
+          "Fix",
+          "Fix",
+          "Fix",
+          "Add"
+        ]
+      }
+    },
+    {
+      "name": "deploy-check",
+      "location": "project",
+      "location_type": "project",
+      "path": ".opencode/skill/deploy-check/SKILL.md",
+      "metadata": {
+        "name": "deploy-check",
+        "description": "Pre-deployment checklist verification",
+        "license": "MIT",
+        "compatibility": "opencode",
+        "audience": "developers",
+        "workflow": "deployment"
+      },
+      "score": {
+        "metadata_score": 35,
+        "metadata_max": 35,
+        "quality_score": 33,
+        "quality_max": 35,
+        "necessity_score": 30,
+        "necessity_max": 30,
+        "total_score": 98,
+        "max_score": 100,
+        "grade": "A",
+        "verdict": "KEEP",
+        "priority": "Low"
+      },
+      "issues": [
+        {
+          "severity": "info",
+          "category": "quality",
+          "message": "Only one code block found",
+          "recommendation": "Add more code examples"
+        }
+      ],
+      "content_analysis": {
+        "line_count": 72,
+        "has_examples": true,
+        "has_output_format": true,
+        "has_actionable_instructions": true,
+        "has_severity_levels": true,
+        "has_when_to_use": true,
+        "code_blocks": 1,
+        "sections": [
+          "What I Do",
+          "Deployment Checklist",
+          "Output Format",
+          "Pre-Deployment Check Results",
+          "Usage"
+        ],
+        "actionable_verbs": [
+          "Verify",
+          "Check",
+          "Fix",
+          "Remove",
+          "Fix",
+          "Run",
+          "check"
+        ]
+      }
+    },
+    {
+      "name": "security-audit",
+      "location": "project",
+      "location_type": "project",
+      "path": ".opencode/skill/security-audit/SKILL.md",
+      "metadata": {
+        "name": "security-audit",
+        "description": "Security vulnerability scanning and best practices check",
+        "license": "MIT",
+        "compatibility": "opencode",
+        "audience": "developers",
+        "workflow": "security"
+      },
+      "score": {
+        "metadata_score": 35,
+        "metadata_max": 35,
+        "quality_score": 25,
+        "quality_max": 35,
+        "necessity_score": 30,
+        "necessity_max": 30,
+        "total_score": 90,
+        "max_score": 100,
+        "grade": "A",
+        "verdict": "KEEP",
+        "priority": "Low"
+      },
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "quality",
+          "message": "No examples section found",
+          "recommendation": "Add concrete examples of skill usage"
+        }
+      ],
+      "content_analysis": {
+        "line_count": 137,
+        "has_examples": false,
+        "has_output_format": true,
+        "has_actionable_instructions": true,
+        "has_severity_levels": true,
+        "has_when_to_use": true,
+        "code_blocks": 3,
+        "sections": [
+          "What I Do",
+          "Security Checks",
+          "Severity Classification",
+          "Output Format",
+          "Security Audit Results",
+          "Recommendations",
+          "When to Use"
+        ],
+        "actionable_verbs": [
+          "Fix",
+          "Fix",
+          "Fix",
+          "Fix",
+          "Fix",
+          "Fix",
+          "Add",
+          "Fix",
+          "Fix",
+          "Add",
+          "Implement",
+          "Add"
+        ]
+      }
+    },
+    {
+      "name": "architecture-analyzer",
+      "location": "project",
+      "location_type": "project",
+      "path": ".opencode/skill/architecture-analyzer/SKILL.md",
+      "metadata": {
+        "name": "architecture-analyzer",
+        "description": "Parse and understand system architecture for performance testing",
+        "license": "MIT",
+        "compatibility": "opencode",
+        "audience": "developers",
+        "workflow": "performance-testing"
+      },
+      "score": {
+        "metadata_score": 35,
+        "metadata_max": 35,
+        "quality_score": 35,
+        "quality_max": 35,
+        "necessity_score": 30,
+        "necessity_max": 30,
+        "total_score": 100,
+        "max_score": 100,
+        "grade": "A",
+        "verdict": "KEEP",
+        "priority": "Low"
+      },
+      "issues": [],
+      "content_analysis": {
+        "line_count": 537,
+        "has_examples": true,
+        "has_output_format": true,
+        "has_actionable_instructions": true,
+        "has_severity_levels": true,
+        "has_when_to_use": true,
+        "code_blocks": 29,
+        "sections": [
+          "What I Do",
+          "Input Formats",
+          "Architecture Components",
+          "Output: Architecture Profile",
+          "Bottleneck Prediction",
+          "Predicted Bottlenecks",
+          "Test Strategy Recommendations",
+          "Extrapolation Calculations",
+          "CloudWatch Monitoring Guide",
+          "Usage Examples",
+          "Bottleneck Analysis for 3,000 RPS Target",
+          "Integration with k6-tester Agent",
+          "When to Use",
+          "Best Practices",
+          "Output Files"
+        ],
+        "actionable_verbs": [
+          "create",
+          "add",
+          "implement",
+          "Test",
+          "Test",
+          "Test",
+          "Test",
+          "test",
+          "test",
+          "run",
+          "test",
+          "verify",
+          "Test",
+          "create",
+          "test",
+          "Update",
+          "Validate",
+          "Test",
+          "test"
+        ]
+      }
+    },
+    {
+      "name": "performance-test",
+      "location": "project",
+      "location_type": "project",
+      "path": ".opencode/skill/performance-test/SKILL.md",
+      "metadata": {
+        "name": "performance-test",
+        "description": "Generate k6 performance test scripts with load patterns and extrapolation",
+        "license": "MIT",
+        "compatibility": "opencode",
+        "audience": "developers",
+        "workflow": "performance-testing"
+      },
+      "score": {
+        "metadata_score": 35,
+        "metadata_max": 35,
+        "quality_score": 27,
+        "quality_max": 35,
+        "necessity_score": 30,
+        "necessity_max": 30,
+        "total_score": 92,
+        "max_score": 100,
+        "grade": "A",
+        "verdict": "KEEP",
+        "priority": "Low"
+      },
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "quality",
+          "message": "No output format defined",
+          "recommendation": "Add '## Output Format' section"
+        }
+      ],
+      "content_analysis": {
+        "line_count": 690,
+        "has_examples": true,
+        "has_output_format": false,
+        "has_actionable_instructions": true,
+        "has_severity_levels": true,
+        "has_when_to_use": true,
+        "code_blocks": 22,
+        "sections": [
+          "What I Do",
+          "Input Requirements",
+          "Load Patterns",
+          "Threshold Configuration",
+          "QA Load Calculation",
+          "Script Structure",
+          "Running the Test",
+          "CloudWatch Monitoring (During Test)",
+          "Analyzing Results",
+          "Soak Test (Run Separately)",
+          "Troubleshooting",
+          "Script Generation Modes",
+          "Best Practices",
+          "Integration with Other Skills",
+          "When to Use",
+          "Output Files"
+        ],
+        "actionable_verbs": [
+          "test",
+          "Create",
+          "run",
+          "Test",
+          "test",
+          "test",
+          "Test",
+          "Test",
+          "Test",
+          "test",
+          "check",
+          "TEST",
+          "Run",
+          "TEST",
+          "Validate",
+          "check",
+          "add",
+          "add",
+          "add",
+          "TEST",
+          "Test",
+          "Verify",
+          "check",
+          "check",
+          "TEST",
+          "Check",
+          "test",
+          "Test",
+          "run",
+          "test",
+          "run",
+          "test",
+          "Run",
+          "run",
+          "test",
+          "Run",
+          "run",
+          "test",
+          "run",
+          "run",
+          "test",
+          "Run",
+          "Test",
+          "run",
+          "run",
+          "test",
+          "Test",
+          "test",
+          "Test",
+          "Run",
+          "run",
+          "test",
+          "Test",
+          "Check",
+          "Verify",
+          "Check",
+          "Check",
+          "Verify",
+          "Test",
+          "Ensure",
+          "Check",
+          "Test",
+          "Test",
+          "test",
+          "test",
+          "test"
+        ]
+      }
+    },
+    {
+      "name": "analyze-k6-results",
+      "location": "project",
+      "location_type": "project",
+      "path": ".opencode/skill/analyze-k6-results/SKILL.md",
+      "metadata": {
+        "name": "analyze-k6-results",
+        "description": "Analyze k6 test results with production extrapolation and cost modeling",
+        "license": "MIT",
+        "compatibility": "opencode",
+        "audience": "developers",
+        "workflow": "performance-testing"
+      },
+      "score": {
+        "metadata_score": 35,
+        "metadata_max": 35,
+        "quality_score": 25,
+        "quality_max": 35,
+        "necessity_score": 30,
+        "necessity_max": 30,
+        "total_score": 90,
+        "max_score": 100,
+        "grade": "A",
+        "verdict": "KEEP",
+        "priority": "Low"
+      },
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "quality",
+          "message": "No examples section found",
+          "recommendation": "Add concrete examples of skill usage"
+        }
+      ],
+      "content_analysis": {
+        "line_count": 667,
+        "has_examples": false,
+        "has_output_format": true,
+        "has_actionable_instructions": true,
+        "has_severity_levels": true,
+        "has_when_to_use": true,
+        "code_blocks": 15,
+        "sections": [
+          "What I Do",
+          "Input Requirements",
+          "Analysis Components",
+          "Threshold Analysis",
+          "Cost Breakdown",
+          "Scenario 1: Target 3,000 RPS (2x Current Capacity)",
+          "Scenario 2: Target 5,000 RPS (3.4x Current Capacity)",
+          "Optimization 1: SQS Message Batching",
+          "Optimization 2: EKS Spot Instances",
+          "Optimization 3: Lambda Reserved Concurrency",
+          "Optimization 4: Aurora Serverless v2 (Alternative to RDS)",
+          "Important Considerations",
+          "Output Formats",
+          "Executive Summary",
+          "Best Practices",
+          "Integration with Other Skills",
+          "When to Use",
+          "Output Files"
+        ],
+        "actionable_verbs": [
+          "test",
+          "run",
+          "test",
+          "run",
+          "test",
+          "Check",
+          "Implement",
+          "add",
+          "Check",
+          "Implement",
+          "Implement",
+          "Test",
+          "Test",
+          "test",
+          "Add",
+          "Test",
+          "Run",
+          "Check",
+          "Validate",
+          "Test",
+          "Verify",
+          "Test",
+          "Test",
+          "Implement",
+          "test",
+          "test"
+        ]
+      }
+    }
+  ]
+}
