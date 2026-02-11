@@ -2,10 +2,10 @@
 
 > Complete index of available OpenCode skills with descriptions, workflows, and usage
 
-**Last Updated:** 2026-02-07  
-**Total Skills:** 6  
+**Last Updated:** 2026-02-10  
+**Total Skills:** 10  
 **Global Skills:** 3  
-**Project Skills:** 3
+**Project Skills:** 7
 
 ---
 
@@ -13,12 +13,16 @@
 
 | Skill | Location | Score | Grade | Workflow | Status |
 |-------|----------|-------|-------|----------|--------|
+| [robot-framework-analyzer](#robot-framework-analyzer) | Project | 100 | A | testing | ✅ Active |
 | [architecture-analyzer](#architecture-analyzer) | Project | 100 | A | performance-testing | ✅ Active |
 | [deploy-check](#deploy-check) | Global | 98 | A | deployment | ✅ Active |
+| [sdet-core-analyzer](#sdet-core-analyzer) | Project | 97 | A | testing | ✅ Active |
 | [team-review](#team-review) | Global | 94 | A | code-review | ✅ Active |
 | [performance-test](#performance-test) | Project | 92 | A | performance-testing | ✅ Active |
 | [security-audit](#security-audit) | Global | 90 | A | security | ✅ Active |
 | [analyze-k6-results](#analyze-k6-results) | Project | 90 | A | performance-testing | ✅ Active |
+| [stack-detective](#stack-detective) | Project | 80 | A | testing | ✅ Active |
+| [testing-patterns-enhancer](#testing-patterns-enhancer) | Project | 79 | B | testing | ✅ Active |
 
 ---
 
