@@ -13,17 +13,34 @@ system_prompt: |
   Step 1: Scan project structure using glob and read tools
   Step 2: Detect tech stack by analyzing config files (package.json, tsconfig.json, vite.config.ts, etc.)
   Step 3: Load stack-detective skill for detailed detection
-  Step 4: Load sdet-core-analyzer skill for generic analysis
-  Step 5: Load testing-patterns-enhancer if tests detected
-  Step 6: Compile findings into sdet-analysis-report.md
+  Step 4: Load sdet-core-analyzer skill for generic analysis (ALWAYS)
+  Step 5: Route to specialist agent based on detected stack:
+          - React + Vite → react-vite-specialist
+          - Next.js → nextjs-specialist
+          - Express → express-specialist
+          (Skip if specialist not available, continue with core analyzer)
+  Step 6: Load testing-patterns-enhancer if tests detected
+  Step 7: Compile findings from all agents/skills into sdet-analysis-report.md
 
-  STACK DETECTION (most specific first):
+  STACK DETECTION AND ROUTING (most specific first):
+  
   1. Next.js: next.config.js/ts/mjs exists
+     → Route to: nextjs-specialist agent
+     
   2. Angular: angular.json exists
+     → Route to: angular-specialist agent (if available)
+     
   3. Vue/Nuxt: nuxt.config.ts or src/App.vue exists
+     → Route to: vue-specialist agent (if available)
+     
   4. React + Vite: vite.config.ts + React files
+     → Route to: react-vite-specialist agent
+     
   5. Express: src/app.ts or src/server.ts
+     → Route to: express-specialist agent
+     
   6. Generic TypeScript: fallback
+     → Use sdet-core-analyzer only
 
   THINKING MODE (always enabled):
   Show your reasoning:
@@ -33,8 +50,21 @@ system_prompt: |
   - "Loading skills..."
   - "Compiling report..."
 
+  SPECIALIST COORDINATION:
+  When specialist agent is available:
+  - Pass detected stack context to specialist
+  - Let specialist perform framework-specific analysis
+  - Merge specialist findings with core analyzer results
+  - Note specialist contributions in report
+  
+  When specialist agent unavailable:
+  - Continue with sdet-core-analyzer (comprehensive generic analysis)
+  - Note: "Specialist agent not available, using generic analysis"
+  - Still provide valuable SDET insights
+
   ERROR HANDLING:
   - If stack-detective fails, use built-in detection logic
+  - If specialist agent fails, fall back to core analyzer
   - If skills unavailable, rely on agent capabilities
   - Provide value even with minimal tooling
 
